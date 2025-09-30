@@ -1,0 +1,33 @@
+{% set levels = {
+    'success': 'bg-emerald-50 text-emerald-800 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-200 dark:border-emerald-800',
+    'error': 'bg-red-50 text-red-800 border-red-200 dark:bg-red-900/30 dark:text-red-200 dark:border-red-800',
+    'warning': 'bg-amber-50 text-amber-800 border-amber-200 dark:bg-amber-900/30 dark:text-amber-200 dark:border-amber-800',
+    'info': 'bg-blue-50 text-blue-800 border-blue-200 dark:bg-blue-900/30 dark:text-blue-200 dark:border-blue-800'
+} %}
+
+<div class="container mx-auto px-4 mt-4 space-y-2">
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            {% set classes = levels[label|default('info')] ?? levels['info'] %}
+            <div class="flex items-start gap-3 rounded-xl border p-3 text-sm shadow-sm {{ classes }}">
+                <div class="mt-0.5">
+                    {% if label == 'success' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm-1 15-5-5 1.41-1.41L11 13.17l5.59-5.58L18 9Z"/></svg>
+                    {% elseif label == 'error' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M11 7h2v6h-2zm0 8h2v2h-2z"/><path d="M1 21h22L12 2 1 21z"/></svg>
+                    {% elseif label == 'warning' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                    {% else %}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 15h-2v-6h2Zm0-8h-2V7h2Z"/></svg>
+                    {% endif %}
+                </div>
+                <div class="flex-1">{{ message|raw }}</div>
+                <button type="button" class="inline-flex h-7 w-7 items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/5" onclick="this.closest('div').remove()" aria-label="Dismiss">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.29 19.71 2.88 18.3 9.17 12 2.88 5.71 4.29 4.29 10.59 10.6l6.3-6.31z"/></svg>
+                </button>
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+
+

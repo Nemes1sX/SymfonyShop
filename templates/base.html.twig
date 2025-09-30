@@ -11,8 +11,25 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+        <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body class="bg-white text-gray-900 antialiased dark:bg-gray-950 dark:text-gray-100">
+        {% block header %}
+            {% include 'partials/_header.html.twig' %}
+        {% endblock %}
+
+        {% include 'partials/_flash_messages.html.twig' %}
+
+        <main class="container mx-auto px-4 py-8">
+            {% block body %}{% endblock %}
+        </main>
+
+        {% block footer %}
+            {% include 'partials/_footer.html.twig' %}
+        {% endblock %}
     </body>
+    
 </html>

@@ -1,0 +1,56 @@
+<header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between py-3">
+            <div class="flex items-center gap-3">
+                <a href="/" class="inline-flex items-center gap-2">
+                    <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gray-900 text-white dark:bg-white dark:text-gray-900 font-bold">SS</span>
+                    <span class="text-lg font-semibold">SymfonyShop</span>
+                </a>
+            </div>
+
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="#" class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Shop</a>
+                <a href="#" class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Categories</a>
+                <a href="#" class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">About</a>
+                <a href="#" class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <div class="hidden sm:flex items-center">
+                    <label for="site-search" class="sr-only">Search</label>
+                    <input id="site-search" name="q" type="search" placeholder="Search products..." class="w-56 rounded-xl border border-gray-300 bg-white/90 px-3 py-2 text-sm shadow-sm outline-none ring-0 placeholder:text-gray-400 hover:border-gray-400 focus:border-gray-500 dark:bg-gray-800/90 dark:border-gray-700 dark:text-gray-100 dark:placeholder:text-gray-500" />
+                </div>
+
+                <a href="#" class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-gray-300 bg-white/80 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800/80 dark:text-gray-200" aria-label="Account">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 12c4.418 0 8 2.239 8 5v1H4v-1c0-2.761 3.582-5 8-5Z"/></svg>
+                </a>
+
+                <a href="#" class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-gray-300 bg-white/80 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800/80 dark:text-gray-200" aria-label="Cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M7 4h-2l-1 2v2h2l3.6 7.59-1.35 2.44A2 2 0 0 0 10 21h10v-2H10l1.1-2h6.45a2 2 0 0 0 1.79-1.11l3.58-7.16A1 1 0 0 0 22 6H6.21l-.94-2ZM7 22a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>
+                </a>
+
+                <button type="button" id="dark-mode-toggle" class="inline-flex h-9 items-center gap-2 rounded-xl border border-gray-300 bg-white/80 px-3 text-sm text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800/80 dark:text-gray-200">
+                    <span class="hidden sm:inline">Theme</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 1 0 9.79 9.79Z"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){
+            var btn = document.getElementById('dark-mode-toggle');
+            if(!btn) return;
+            btn.addEventListener('click', function(){
+                var root = document.documentElement;
+                root.classList.toggle('dark');
+                try { localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light'); } catch(e) {}
+            });
+            try {
+                var saved = localStorage.getItem('theme');
+                if(saved === 'dark') { document.documentElement.classList.add('dark'); }
+            } catch(e) {}
+        })();
+    </script>
+</header>
+
+
