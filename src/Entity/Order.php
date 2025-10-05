@@ -46,6 +46,9 @@ class Order
     #[ORM\OneToMany(targetEntity: OrderLines::class, mappedBy: 'OrderLinesOrder')]
     private Collection $orderLines;
 
+    #[ORM\Column(length: 255)]
+    private ?string $full_name = null;
+
     public function __construct()
     {
         $this->orderLines = new ArrayCollection();
@@ -188,6 +191,18 @@ class Order
                 $orderLine->setOrderLinesOrder(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFullName(): ?string
+    {
+        return $this->full_name;
+    }
+
+    public function setFullName(string $full_name): static
+    {
+        $this->full_name = $full_name;
 
         return $this;
     }
