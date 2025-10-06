@@ -7,11 +7,13 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Symfony\Component\Validator\Constraints\Collection;
 
 abstract class FormRequest
 {
     protected Request $request;
     protected ValidatorInterface $validator;
+    protected ?array $validatedData = null;
 
     public function __construct(Request $request, ValidatorInterface $validator)
     {
@@ -32,16 +34,20 @@ abstract class FormRequest
 
     public function validated(): array
     {
-        $data = $this->request->toArray();
+        if ($this->validatedData !== null) {
+            return $this->validatedData;
+        }
 
-        $violations = $this->validator->validate($data, new \Symfony\Component\Validator\Constraints\Collection($this->rules()));
+        $data = $this->request->toArray();
+        $constraints = new Collection($this->rules());
+        $violations = $this->validator->validate($data, $constraints);
 
         if (count($violations) > 0) {
             throw new BadRequestHttpException($this->formatErrors($violations));
         }
 
-        // Return only the validated keys
-        return array_intersect_key($data, $this->rules());
+        $this->validatedData = array_intersect_key($data, $this->rules());
+        return $this->validatedData;
     }
 
     protected function formatErrors(ConstraintViolationListInterface $violations): string

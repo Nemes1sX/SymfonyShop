@@ -22,7 +22,7 @@ class StoreOrderRequest extends FormRequest
    public function rules(): array
    {
        return [
-           'fullname' => [new Assert\NotBlank(), new Assert\Length(['min' => 3])],
+           'full_name' => [new Assert\NotBlank(), new Assert\Length(['min' => 3])],
            'email' => [new Assert\NotBlank(), new Assert\Email()],
            'postcode' => [new Assert\NotBlank()],
            'address' => [new Assert\NotBlank(), new Assert\Length(['min' => 4])],
