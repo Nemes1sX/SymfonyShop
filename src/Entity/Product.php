@@ -26,7 +26,7 @@ class Product
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?int $prie = null;
+    private ?float $price = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
@@ -87,14 +87,14 @@ class Product
         return $this;
     }
 
-    public function getPrie(): ?int
+    public function getPrice(): ?float
     {
-        return $this->prie;
+        return $this->price;
     }
 
-    public function setPrie(int $prie): static
+    public function setPrice(float $price): static
     {
-        $this->prie = $prie;
+        $this->price = $price;
 
         return $this;
     }

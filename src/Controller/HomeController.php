@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\ProductRepository;
+use Symfony\Component\HttpKernel\Attribute\MapQueryString;
 
 class HomeController extends AbstractController
 {
@@ -16,7 +17,7 @@ class HomeController extends AbstractController
     }
 
     #[Route('/', name: 'app_index')]
-    public function home(string $sortParam): Response
+    public function home(#[MapQueryString] ?string $sortParam = null): Response
     {
         $products = $this->productRepository->findBySortParam($sortParam);
 

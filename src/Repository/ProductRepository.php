@@ -19,17 +19,26 @@ class ProductRepository extends ServiceEntityRepository
     //    /**
     //     * @return Product[] Returns an array of Product objects
     //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('p')
-    //            ->andWhere('p.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('p.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+    public function findBySortParam(?string $sortParam): array
+    {
+        $qb = $this->createQueryBuilder('p');
+
+
+        $sortMap = [
+            'priceasc' => ['p.price', 'ASC'],
+            'pricedesc' => ['p.price', 'DESC'],
+            'titleasc' => ['p.title', 'ASC'],
+            'titledesc' => ['p.title', 'DESC'],
+        ];
+
+        if (isset($sortMap[$sortParam])) {
+            [$field, $direction] = $sortMap[$sortParam];
+            $qb->orderBy($field, $direction);
+        }
+        return $qb->getQuery()
+            ->getResult()
+        ;
+    }
 
     //    public function findOneBySomeField($value): ?Product
     //    {
