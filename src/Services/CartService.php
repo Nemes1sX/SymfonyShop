@@ -38,7 +38,7 @@ class CartService
             "id" => $product->getId(),
             "name" => $product->getTitle(),
             "quantity" => $quantity,
-            "price" => $product->getPrie(),
+            "price" => $product->getPrice(),
             "photo" => $product->getImagePath()
         ];
 
@@ -89,7 +89,7 @@ class CartService
             "id" => $product->getId(),
             "name" => $product->getTitle(),
             "quantity" => $quantity,
-            "price" => $product->getPrie(),
+            "price" => $product->getPrice(),
             "photo" => $product->getImagePath()
         ];
 

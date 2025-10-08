@@ -31,6 +31,7 @@ final class CartController extends AbstractController
         return $this->render('cart/index.html.twig', ['cart' => $cart, 'totalPrice' => $totalPrice, 'totalQuantity' => $totalQuantity]);
     }
 
+    #[Route('/cart/add/{product}', name: 'app_cart_add')]
     public function add(Request $request, CartService $cartService, Product $product)
     {
         $cartService->add($product, $request->get('quantity'));
@@ -50,6 +51,7 @@ final class CartController extends AbstractController
         ]);
     }
 
+    #[Route('/cart/add/remove', name: 'app_cart_remove_all')]
     public function removeAll(CartService $cartService, Request $request)
     {
         $cartService->removeAll();
@@ -62,6 +64,7 @@ final class CartController extends AbstractController
         return $this->redirectToRoute('app_index');
     }
 
+    #[Route('/cart/remove/{productId}', name: 'app_cart_remove')]
     public function remove(CartService $cartService, int $productId, Request $request)
     {
         $cartService->removeItem($productId);
@@ -75,6 +78,7 @@ final class CartController extends AbstractController
         return $this->redirectToRoute('app_index');
     }
 
+    #[Route('/cart/add/quantity/{cartId}', name: 'app_cart_add_quantity')]
     public function addQuantity(CartService $cartService, int $cartId)
     {
         $cartService->addQuantity($cartId);
@@ -97,6 +101,7 @@ final class CartController extends AbstractController
         ]);
     }
 
+    #[Route('/cart/remove/quantity/{cartId}', name: 'app_cart_remove_quantity')]
     public function removeQuantity(CartService $cartService, int $cartId)
     {
         $cartService->removeQuantity($cartId);

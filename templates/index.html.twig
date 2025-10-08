@@ -8,42 +8,42 @@
     <h2 class="text-2xl font-bold">Tailwind CSS Test</h2>
     <p class="text-sm">This should be styled with Tailwind classes</p>
 </div>
-<div class="row">
-    <section id="billboard" class="position-relative overflow-hidden bg-light-blue">
+<div class="container mx-auto px-4">
+    <section id="billboard" class="relative overflow-hidden bg-blue-50">
         <div class="swiper main-swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="container">
-                        <div class="row d-flex align-items-center">
-                            <div class="col-md-6">
+                    <div class="container mx-auto px-4">
+                        <div class="flex flex-wrap items-center">
+                            <div class="w-full md:w-1/2">
                                 <div class="banner-content">
-                                    <h1 class="display-2 text-uppercase text-dark pb-5">Your Products Are Great.</h1>
+                                    <h1 class="text-5xl md:text-6xl uppercase text-gray-900 pb-5">Your Products Are Great.</h1>
                                     <a href="{{ path('app_home') }}"
-                                        class="btn btn-medium btn-dark text-uppercase btn-rounded-none">Shop Product</a>
+                                        class="inline-block px-6 py-3 bg-gray-900 text-white uppercase rounded-none">Shop Product</a>
                                 </div>
                             </div>
-                            <div class="col-md-5">
+                            <div class="w-full md:w-5/12 md:ml-auto">
                                 <div class="image-holder">
-                                    <img src="{{ asset('img/banner-image.png') }}" alt="banner">
+                                    <img src="{{ asset('images/banner-image.png') }}" alt="banner">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="container">
-                        <div class="row d-flex flex-wrap align-items-center">
-                            <div class="col-md-6">
+                    <div class="container mx-auto px-4">
+                        <div class="flex flex-wrap items-center">
+                            <div class="w-full md:w-1/2">
                                 <div class="banner-content">
-                                    <h1 class="display-2 text-uppercase text-dark pb-5">Technology Hack You Won't Get
+                                    <h1 class="text-5xl md:text-6xl uppercase text-gray-900 pb-5">Technology Hack You Won't Get
                                     </h1>
                                     <a href="{{ path('app_home') }}"
-                                        class="btn btn-medium btn-dark text-uppercase btn-rounded-none">Shop Product</a>
+                                        class="inline-block px-6 py-3 bg-gray-900 text-white uppercase rounded-none">Shop Product</a>
                                 </div>
                             </div>
-                            <div class="col-md-5">
+                            <div class="w-full md:w-5/12 md:ml-auto">
                                 <div class="image-holder">
-                                    <img src="{{ asset('img/banner-image.png') }}" alt="banner">
+                                    <img src="{{ asset('images/banner-image.png') }}" alt="banner">
                                 </div>
                             </div>
                         </div>
@@ -62,58 +62,58 @@
             </svg>
         </div>
     </section>
-    <section id="company-services" class="padding-large">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 pb-3">
-                    <div class="icon-box d-flex">
-                        <div class="icon-box-icon pe-3 pb-3">
+    <section id="company-services" class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="pb-3">
+                    <div class="icon-box flex">
+                        <div class="icon-box-icon pr-3 pb-3">
                             <svg class="cart-outline">
                                 <use xlink:href="#cart-outline" />
                             </svg>
                         </div>
                         <div class="icon-box-content">
-                            <h3 class="card-title text-uppercase text-dark">Free delivery</h3>
-                            <p>Consectetur adipi elit lorem ipsum dolor sit amet.</p>
+                            <h3 class="text-sm tracking-wider uppercase text-gray-900">Free delivery</h3>
+                            <p class="text-gray-600">Consectetur adipi elit lorem ipsum dolor sit amet.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 pb-3">
-                    <div class="icon-box d-flex">
-                        <div class="icon-box-icon pe-3 pb-3">
+                <div class="pb-3">
+                    <div class="icon-box flex">
+                        <div class="icon-box-icon pr-3 pb-3">
                             <svg class="quality">
                                 <use xlink:href="#quality" />
                             </svg>
                         </div>
                         <div class="icon-box-content">
-                            <h3 class="card-title text-uppercase text-dark">Quality guarantee</h3>
-                            <p>Dolor sit amet orem ipsu mcons ectetur adipi elit.</p>
+                            <h3 class="text-sm tracking-wider uppercase text-gray-900">Quality guarantee</h3>
+                            <p class="text-gray-600">Dolor sit amet orem ipsu mcons ectetur adipi elit.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 pb-3">
-                    <div class="icon-box d-flex">
-                        <div class="icon-box-icon pe-3 pb-3">
+                <div class="pb-3">
+                    <div class="icon-box flex">
+                        <div class="icon-box-icon pr-3 pb-3">
                             <svg class="price-tag">
                                 <use xlink:href="#price-tag" />
                             </svg>
                         </div>
                         <div class="icon-box-content">
-                            <h3 class="card-title text-uppercase text-dark">Daily offers</h3>
-                            <p>Amet consectetur adipi elit loreme ipsum dolor sit.</p>
+                            <h3 class="text-sm tracking-wider uppercase text-gray-900">Daily offers</h3>
+                            <p class="text-gray-600">Amet consectetur adipi elit loreme ipsum dolor sit.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 pb-3">
-                    <div class="icon-box d-flex">
-                        <div class="icon-box-icon pe-3 pb-3">
+                <div class="pb-3">
+                    <div class="icon-box flex">
+                        <div class="icon-box-icon pr-3 pb-3">
                             <svg class="shield-plus">
                                 <use xlink:href="#shield-plus" />
                             </svg>
                         </div>
                         <div class="icon-box-content">
-                            <h3 class="card-title text-uppercase text-dark">100% secure payment</h3>
-                            <p>Rem Lopsum dolor sit amet, consectetur adipi elit.</p>
+                            <h3 class="text-sm tracking-wider uppercase text-gray-900">100% secure payment</h3>
+                            <p class="text-gray-600">Rem Lopsum dolor sit amet, consectetur adipi elit.</p>
                         </div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
                         <h5 class="text-lg font-semibold text-gray-900 text-center mb-2">{{ product.title }}</h5>
                         <p class="text-xl font-bold text-gray-800 text-center mb-4">{{ product.price }} €</p>
                         <div class="flex flex-col items-center space-y-3">
-                            <select class="w-full px-3 py-2 my-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <select id="quantity" class="w-full px-3 py-2 my-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                 {% for i in 1..5 %}
                                     <option class="quantity" value="{{ i }}">{{ i }}</option>
                                 {% endfor %}
@@ -158,12 +158,12 @@
     $(document).ready(function() {
       $('.add-to-cart').on('click', function(e) {
         let product =  $(this).prev().val();
-        let quantity = $(this).closest('.card').find('.quantity:selected').val();
+        let quantity = $(this).closest('.bg-white').find('select#quantity option:selected').val();
         console.log(product);
         console.log(quantity);
         $.ajax({
           method: 'POST',
-          url: `api/cart/add/${product}`,
+          url: `cart/add/${product}`,
           datatype: 'JSON',
           data: {
             quantity: quantity
